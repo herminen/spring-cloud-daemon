@@ -4,6 +4,15 @@ server:
 spring:
   application:
     name: talk-greeting
+  zipkin:
+    base-url: http://localhost:9200
+    # 关闭服务发现，否则Spring Cloud会把zipkin的url当做服务名称
+    discoveryClientEnabled: false
+    sender:
+      type: web  # 设置使用http的方式传输数据
+  sleuth:
+    sampler:
+      percentage: 1
 
 eureka:
   instance:
@@ -32,3 +41,8 @@ feign:
         loggerLevel: basic
   hystrix:
     enabled: true
+
+
+logging:
+  level:
+    org.springframework.cloud: debug

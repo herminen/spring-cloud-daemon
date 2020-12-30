@@ -1,18 +1,16 @@
 server:
-  port: 9100
+  port: 9200
 
 spring:
   application:
-    name: machine-zuul
-  zipkin:
-    base-url: http://localhost:9200
-    # 关闭服务发现，否则Spring Cloud会把zipkin的url当做服务名称
-    discoveryClientEnabled: false
-    sender:
-      type: web  # 设置使用http的方式传输数据
-  sleuth:
-    sampler:
-      percentage: 1
+    name: machine-slueth
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+
 
 eureka:
   instance:
@@ -37,29 +35,3 @@ eureka:
     eureka-server-port: 9000
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${eureka.client.eureka-server-port}/eureka/
-
-#feign的配置，连接超时及读取超时配置
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
-  hystrix:
-    enabled: true
-
-#zuul
-zuul:
-  retryable: true
-  routes:
-    talk-greeting:
-      path: /greeting/**
-      serviceid: talk-greeting
-    machine-talk:
-      path: /machine/**
-      serviceid: machine-talk
-
-logging:
-  level:
-    org.springframework.cloud.openfeign: debug

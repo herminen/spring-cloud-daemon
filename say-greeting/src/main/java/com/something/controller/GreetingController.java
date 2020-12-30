@@ -37,7 +37,7 @@ public class GreetingController {
     )*/
     @GetMapping("/morning")
     public String morning(@RequestParam("time") Date time){
-        log.warning("receive time [" + time.getTime() + "]");
+        log.info("receive time [" + time.getTime() + "]");
         return "this is port [" + port + "] say morning";
     }
 
