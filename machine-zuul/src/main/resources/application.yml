@@ -60,6 +60,6 @@ zuul:
       path: /machine/**
       serviceid: machine-talk
 
-logging:
-  level:
-    org.springframework.cloud.openfeign: debug
+#logging:
+#  level:
+#    org.springframework.cloud: debug

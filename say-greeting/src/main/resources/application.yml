@@ -43,6 +43,6 @@ feign:
     enabled: true
 
 
-logging:
-  level:
-    org.springframework.cloud: debug
+#logging:
+#  level:
+#    org.springframework.cloud: debug
