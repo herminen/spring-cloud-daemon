@@ -50,7 +50,8 @@ feign:
   hystrix:
     enabled: true
 
-#logging:
-#  level:
-#    org.springframework.cloud: debug
+#跟踪调用链需要
+logging:
+  level:
+    org.springframework.cloud: debug
 
