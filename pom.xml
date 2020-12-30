@@ -6,6 +6,7 @@
         <module>registry-center</module>
         <module>machine-talk</module>
         <module>hystrix-dashboard</module>
+        <module>machine-zuul</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -1,10 +1,9 @@
 server:
-  port: 9001
+  port: 9100
 
 spring:
   application:
-    name: machine-talk
-
+    name: machine-zuul
 
 eureka:
   instance:
@@ -41,4 +40,13 @@ feign:
   hystrix:
     enabled: true
 
-
+#zuul
+zuul:
+  retryable: true
+  routes:
+    talk-greeting:
+      path: /greeting/**
+      serviceid: talk-greeting
+    machine-talk:
+      path: /machine/**
+      serviceid: machine-talk

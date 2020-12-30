@@ -22,7 +22,7 @@ public class GreetingController {
     @Value("${server.port}")
     private String port;
 
-    @LoadBalanced
+    /*@LoadBalanced
     @HystrixCommand(commandKey = "morningCommand", groupKey = "morningGroup", fallbackMethod = "morningFallback",
             commandProperties =
             {
@@ -34,7 +34,7 @@ public class GreetingController {
                 @HystrixProperty(name = "maxQueueSize",value="10"),
                 @HystrixProperty(name = "queueSizeRejectionThreshold",value="20")
             }
-    )
+    )*/
     @GetMapping("/morning")
     public String morning(@RequestParam("time") Date time){
         log.warning("receive time [" + time.getTime() + "]");
