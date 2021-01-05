@@ -8,6 +8,7 @@
         <module>hystrix-dashboard</module>
         <module>machine-zuul</module>
         <module>machine-slueth</module>
+        <module>machine-search</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
