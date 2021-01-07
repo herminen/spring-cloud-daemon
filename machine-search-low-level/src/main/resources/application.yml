@@ -7,4 +7,4 @@ spring:
   data:
     elasticsearch:
       cluster-name: rainbow
-      cluster-nodes: 172.16.74.241:9200,172.16.74.242:9200,172.16.74.243:9200
+      cluster-nodes: 172.16.74.241:9300,172.16.74.242:9300,172.16.74.243:9300

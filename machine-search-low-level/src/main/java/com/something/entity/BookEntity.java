@@ -5,11 +5,15 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
+//import org.springframework.data.annotation.Id;
+//import org.springframework.data.elasticsearch.annotations.Document;
+//import org.springframework.data.elasticsearch.annotations.Field;
+//import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.util.Date;
 
 @Data
-@Document(indexName = "books", shards = 3)
+@Document(indexName = "books", shards = 3, type = "_doc")
 public class BookEntity {
 
     @Id

@@ -1,24 +1,26 @@
 package com.something;
 
-import com.something.entity.BookEntity;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexRequestBuilder;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestHighLevelClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
-import java.util.Map;
+import java.io.IOException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {MachineSearchApplication.class})
 public class TestElasticSearchTemplate {
-    @Resource
-    private ElasticsearchTemplate template;
+
+    @Autowired
+    RestHighLevelClient restHighLevelClient;
 
     @Test
-    public void testEsTemplate(){
-        Map mapping = template.getMapping(BookEntity.class);
-        System.out.println(mapping);
+    public void testEsTemplate() throws IOException {
+        System.out.println(restHighLevelClient.ping(RequestOptions.DEFAULT));
     }
 }
