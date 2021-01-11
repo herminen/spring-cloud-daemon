@@ -10,6 +10,7 @@
         <module>machine-slueth</module>
         <module>machine-search</module>
         <module>machine-search-low-level</module>
+        <module>machine-search-spring-data</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -1,0 +1,18 @@
+server:
+  port: 9030
+
+spring:
+  application:
+    name: machine-search
+  elasticsearch:
+    rest:
+      connection-timeout: 3s
+      read-timeout: 3s
+      uris:
+      - http://172.16.74.241:9200
+      - http://172.16.74.242:9200
+      - http://172.16.74.243:9200
+
+logging:
+  level:
+    org.springframework.data.elasticsearch.client.WIRE: debug
