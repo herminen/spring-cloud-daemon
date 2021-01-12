@@ -1,11 +1,15 @@
 package com.something.index;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Document(indexName = "books", shards = 3, replicas = 1,  refreshInterval = "3s")
+@Data
+@TypeAlias("bookentity")
+@Document(indexName = "books", shards = 3, refreshInterval = "3s")
 public class BookEntity {
 
     @Id

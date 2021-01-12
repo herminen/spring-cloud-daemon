@@ -1,0 +1,33 @@
+server:
+  port: 9030
+
+spring:
+  application:
+    name: machine-search
+  elasticsearch:
+    bboss:
+      elasticsearch:
+        rest:
+          hostnames: 192.168.0.31:9200,192.168.0.32:9200,192.168.0.33:9200
+        dateFormat: yyyy.MM.dd hh:mm:ss
+        timeZone: Asia/Shanghai
+        ttl: 2d
+        #在控制台输出脚本调试开关showTemplate,false关闭，true打开，同时log4j至少是info级别
+        showTemplate: true
+        discoverHost: false
+    dslfile:
+      refreshInterval: -1 # dsl配置文件热加载扫描时间间隔，毫秒为单位，默认5秒扫描一次，<= 0时关闭扫描机制
+
+  http:
+    timeoutConnection: 5000
+    timeoutSocket: 5000
+    connectionRequestTimeout: 5000
+    retryTime: 1
+    maxLineLength: -1
+    maxHeaderCount: 200
+    maxTotal: 400
+    defaultMaxPerRoute: 200
+    soReuseAddress: false
+    soKeepAlive: false
+    timeToLive: 3600000
+    keepAlive: 3600000

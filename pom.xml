@@ -11,6 +11,7 @@
         <module>machine-search</module>
         <module>machine-search-low-level</module>
         <module>machine-search-spring-data</module>
+        <module>machine-search-bboss</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
