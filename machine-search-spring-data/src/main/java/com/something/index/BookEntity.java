@@ -3,9 +3,7 @@ package com.something.index;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
-import org.springframework.data.elasticsearch.annotations.Document;
-import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.*;
 
 @Data
 @TypeAlias("bookentity")
@@ -14,7 +12,12 @@ public class BookEntity {
 
     @Id
     private Long id;
-    @Field(name = "name", type = FieldType.Text, analyzer = "ik_max_word")
+    @MultiField(
+        mainField = @Field(name = "name", type = FieldType.Text, analyzer = "ik_max_word"),
+        otherFields = {
+                @InnerField(suffix = "keyword", type = FieldType.Keyword)
+        }
+    )
     private String name;
     @Field(name = "author", type = FieldType.Text, analyzer = "ik_max_word", store = true)
     private String author;
